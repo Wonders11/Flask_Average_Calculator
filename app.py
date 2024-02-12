@@ -50,7 +50,19 @@ def calculate():
         else:
             result="fail"
 
-        return render_template('result.html',results = average_marks)
+        results_dict = {'Math':maths,'Science':science,'History':history,'Average':average_marks}
+
+        return render_template('result.html',results = results_dict)
+        # return render_template('result.html',results = average_marks) # place below code in result.html page
+        """
+        {% if results>= 50  %} 
+        <h1> The result is pass and the average marks is {{results}}</h1>
+        {% else %}
+        <h1>The result is fail and the average marks is {{results}} </h1>
+        {% endif %}
+        """
+
+
         #return redirect(url_for(result,score=average_marks))#if we want to redirect to page in above mentioned urls we will use redirect
         # return render_template('result.html',results=average_marks) # results variable will be used in result.html page
         # return render_template('calculate.html',results=average_marks)
